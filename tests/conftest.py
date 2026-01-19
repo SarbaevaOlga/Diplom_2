@@ -36,3 +36,9 @@ def get_available_items():
     data = response.json()
     assert data["success"] == True
     return [item["_id"] for item in data["data"][:2]]
+
+
+def get_user_token(user_info):
+    """Получение токена авторизации для пользователя (вспомогательная функция)"""
+    auth_result = APIClient.login_user(user_info["email"], user_info["password"])
+    return auth_result.json()["accessToken"]
