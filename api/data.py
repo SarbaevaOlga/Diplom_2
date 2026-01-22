@@ -3,7 +3,7 @@ import string
 import time
 
 class ServiceURLs:
-    API_BASE = 'https://stellarburgers.nomoreparties.site'
+    API_BASE = 'https://stellarburgers.education-services.ru'
     
     # Пользователь: регистрация и аутентификация
     USER_REGISTRATION = f'{API_BASE}/api/auth/register'

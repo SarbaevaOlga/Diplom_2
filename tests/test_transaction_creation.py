@@ -48,11 +48,11 @@ class TestOrderCreation:
         with allure.step('Использовать некорректные идентификаторы'):
             result = APIClient.place_order(TestConfig.BAD_ITEM_IDS, user_token)
 
-        with allure.step('Проверить внутреннюю ошибку сервера'):
-            assert result.status_code == [400, 500]
+        with allure.step('Проверить ответ сервера'):
+            assert result.status_code in [400, 500]
 
     @allure.title('Создание заказа без авторизации')
-    def test_place_order_without_auth_fails(self, get_available_items):
+    def test_place_order_without_auth_success(self, get_available_items):
         with allure.step('Отправить запрос без токена'):
             result = APIClient.place_order(get_available_items)
 
